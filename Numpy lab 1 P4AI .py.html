@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>Numpy lab 1 P4AI .py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #6aab73;}
+.s5 { color: #7a7e85;}
+.s6 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Numpy lab 1 P4AI .py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">numpy </span><span class="s0">as </span><span class="s1">np</span>
+
+<span class="s0">def </span><span class="s1">check</span><span class="s2">(</span><span class="s1">label</span><span class="s2">, </span><span class="s1">test</span><span class="s2">):</span>
+    <span class="s3">&quot;&quot;&quot;Run one exercise check ad print pass or not yet&quot;&quot;&quot;</span>
+    <span class="s0">try</span><span class="s2">:</span>
+       <span class="s1">ok</span><span class="s2">=</span><span class="s1">bool</span><span class="s2">(</span><span class="s1">test</span><span class="s2">())</span>
+    <span class="s0">except </span><span class="s1">Exception</span><span class="s2">:</span>
+       <span class="s1">ok</span><span class="s2">=</span><span class="s0">False</span>
+    <span class="s1">print</span><span class="s2">((</span><span class="s4">&quot;Pass&quot; </span><span class="s0">if </span><span class="s1">ok </span><span class="s0">else </span><span class="s4">&quot;Not yet&quot;</span><span class="s2">)+</span><span class="s1">label</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Numpy version&quot;</span><span class="s2">, </span><span class="s1">np</span><span class="s2">.</span><span class="s1">__version__</span><span class="s2">)</span>
+
+
+<span class="s5">#02</span>
+<span class="s1">py_list</span><span class="s2">=[</span><span class="s6">1</span><span class="s2">,</span><span class="s6">2</span><span class="s2">,</span><span class="s6">3</span><span class="s2">]</span>
+<span class="s1">arr</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">array</span><span class="s2">([</span><span class="s6">1</span><span class="s2">,</span><span class="s6">2</span><span class="s2">,</span><span class="s6">3</span><span class="s2">])</span>
+
+<span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;list*2       -&gt;&quot;</span><span class="s2">,</span><span class="s1">py_list </span><span class="s2">*</span><span class="s6">2</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;array *2     -&gt;&quot;</span><span class="s2">,</span><span class="s1">arr</span><span class="s2">*</span><span class="s6">2</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;list + list   -&gt;&quot;</span><span class="s2">,</span><span class="s1">py_list</span><span class="s2">+</span><span class="s1">py_list</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;arra + array -&gt;&quot;</span><span class="s2">,</span><span class="s1">arr</span><span class="s2">+</span><span class="s1">arr</span><span class="s2">)</span>
+
+<span class="s5">#03</span>
+<span class="s0">import </span><span class="s1">numpy </span><span class="s0">as </span><span class="s1">np</span>
+<span class="s0">import </span><span class="s1">time</span>
+
+<span class="s1">n </span><span class="s2">= </span><span class="s6">1_000_000</span>
+
+<span class="s1">numbers_list </span><span class="s2">= </span><span class="s1">list</span><span class="s2">(</span><span class="s1">range</span><span class="s2">(</span><span class="s1">n</span><span class="s2">))</span>
+<span class="s1">numbers_arr </span><span class="s2">= </span><span class="s1">np</span><span class="s2">.</span><span class="s1">arange</span><span class="s2">(</span><span class="s1">n</span><span class="s2">)</span>
+
+<span class="s5"># Measure list execution time</span>
+<span class="s1">start </span><span class="s2">= </span><span class="s1">time</span><span class="s2">.</span><span class="s1">perf_counter</span><span class="s2">()</span>
+<span class="s1">square_list </span><span class="s2">= [</span><span class="s1">x </span><span class="s2">** </span><span class="s6">2 </span><span class="s0">for </span><span class="s1">x </span><span class="s0">in </span><span class="s1">numbers_list</span><span class="s2">]</span>
+<span class="s1">list_time </span><span class="s2">= </span><span class="s1">time</span><span class="s2">.</span><span class="s1">perf_counter</span><span class="s2">() - </span><span class="s1">start</span>
+
+<span class="s5"># Measure NumPy array execution time</span>
+<span class="s1">start </span><span class="s2">= </span><span class="s1">time</span><span class="s2">.</span><span class="s1">perf_counter</span><span class="s2">()</span>
+<span class="s1">squares_arr </span><span class="s2">= </span><span class="s1">numbers_arr </span><span class="s2">** </span><span class="s6">2</span>
+<span class="s1">arr_time </span><span class="s2">= </span><span class="s1">time</span><span class="s2">.</span><span class="s1">perf_counter</span><span class="s2">() - </span><span class="s1">start</span>
+
+<span class="s5"># Display results in milliseconds</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;List loop    : </span><span class="s0">{</span><span class="s1">list_time </span><span class="s2">* </span><span class="s6">1000</span><span class="s0">:</span><span class="s4">,.2f</span><span class="s0">} </span><span class="s4">ms&quot;</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;NumPy array  : </span><span class="s0">{</span><span class="s1">arr_time </span><span class="s2">* </span><span class="s6">1000</span><span class="s0">:</span><span class="s4">,.2f</span><span class="s0">} </span><span class="s4">ms&quot;</span><span class="s2">)</span>
+
+<span class="s5"># Calculate speed comparison</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;NumPy is about: </span><span class="s0">{</span><span class="s1">list_time </span><span class="s2">/ </span><span class="s1">arr_time</span><span class="s0">:</span><span class="s4">,.2f</span><span class="s0">}</span><span class="s4">x faster&quot;</span><span class="s2">)</span>
+
+
+<span class="s5">#04</span>
+
+<span class="s1">a</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">array</span><span class="s2">([</span><span class="s6">2</span><span class="s2">,</span><span class="s6">8</span><span class="s2">,</span><span class="s6">15</span><span class="s2">,</span><span class="s6">16</span><span class="s2">,</span><span class="s6">23</span><span class="s2">,</span><span class="s6">12</span><span class="s2">])</span>
+<span class="s1">m</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">array</span><span class="s2">([</span><span class="s6">1</span><span class="s2">,</span><span class="s6">2</span><span class="s2">,</span><span class="s6">3</span><span class="s2">],[</span><span class="s6">4</span><span class="s2">,</span><span class="s6">5</span><span class="s2">,</span><span class="s6">6</span><span class="s2">])</span>
+<span class="s1">t</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">array</span><span class="s2">([</span><span class="s6">1</span><span class="s2">,</span><span class="s6">2</span><span class="s2">],[</span><span class="s6">3</span><span class="s2">,</span><span class="s6">4</span><span class="s2">],[</span><span class="s6">5</span><span class="s2">,</span><span class="s6">6</span><span class="s2">],[</span><span class="s6">7</span><span class="s2">,</span><span class="s6">8</span><span class="s2">])</span>
+
+<span class="s0">for </span><span class="s1">name</span><span class="s2">, </span><span class="s1">x </span><span class="s0">in </span><span class="s2">[(</span><span class="s4">&quot;a&quot;</span><span class="s2">,</span><span class="s1">a</span><span class="s2">),(</span><span class="s4">&quot;m&quot;</span><span class="s2">,</span><span class="s1">m</span><span class="s2">),(</span><span class="s4">&quot;t&quot;</span><span class="s2">,</span><span class="s1">t</span><span class="s2">)]:</span>
+     <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;</span><span class="s0">{</span><span class="s1">name</span><span class="s0">}</span><span class="s4">: ndim</span><span class="s0">{</span><span class="s1">x</span><span class="s2">,</span><span class="s1">ndim</span><span class="s0">}</span><span class="s4">, shape=</span><span class="s0">{</span><span class="s1">x</span><span class="s2">.</span><span class="s1">shape</span><span class="s0">}</span><span class="s4">, size=(x.size), dtype=</span><span class="s0">{</span><span class="s1">x</span><span class="s2">.</span><span class="s1">dtype</span><span class="s0">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+
+<span class="s5">#05</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">np</span><span class="s2">.</span><span class="s1">zeros</span><span class="s2">(</span><span class="s6">2</span><span class="s2">,</span><span class="s6">3</span><span class="s2">)))</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">np</span><span class="s2">.</span><span class="s1">ones</span><span class="s2">(</span><span class="s6">4</span><span class="s2">))</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">np</span><span class="s2">.</span><span class="s1">full</span><span class="s2">((</span><span class="s6">2</span><span class="s2">,</span><span class="s6">2</span><span class="s2">),</span><span class="s6">9</span><span class="s2">))</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">np</span><span class="s2">.</span><span class="s1">eye</span><span class="s2">(</span><span class="s6">3</span><span class="s2">))</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">np</span><span class="s2">.</span><span class="s1">arrange</span><span class="s2">(</span><span class="s6">0</span><span class="s2">,</span><span class="s6">20</span><span class="s2">,</span><span class="s6">5</span><span class="s2">))</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">np</span><span class="s2">.</span><span class="s1">linspace</span><span class="s2">(</span><span class="s6">0</span><span class="s2">,</span><span class="s6">1</span><span class="s2">,</span><span class="s6">6</span><span class="s2">))</span>
+
+<span class="s5">#06</span>
+
+<span class="s0">import </span><span class="s1">numpy </span><span class="s0">as </span><span class="s1">np</span>
+
+<span class="s1">x </span><span class="s2">= </span><span class="s1">np</span><span class="s2">.</span><span class="s1">array</span><span class="s2">([</span><span class="s6">1</span><span class="s2">, </span><span class="s6">2</span><span class="s2">, </span><span class="s6">3</span><span class="s2">])</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">x</span><span class="s2">.</span><span class="s1">dtype</span><span class="s2">)</span>
+
+<span class="s1">y </span><span class="s2">= </span><span class="s1">np</span><span class="s2">.</span><span class="s1">array</span><span class="s2">([</span><span class="s6">4</span><span class="s2">, </span><span class="s6">5</span><span class="s2">, </span><span class="s6">6</span><span class="s2">], </span><span class="s1">dtype</span><span class="s2">=</span><span class="s1">float</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">y</span><span class="s2">.</span><span class="s1">dtype</span><span class="s2">, </span><span class="s1">y</span><span class="s2">)</span>
+
+<span class="s1">z </span><span class="s2">= </span><span class="s1">np</span><span class="s2">.</span><span class="s1">array</span><span class="s2">([</span><span class="s6">1.7</span><span class="s2">, </span><span class="s6">2.9</span><span class="s2">, </span><span class="s6">3.9</span><span class="s2">], </span><span class="s1">dtype</span><span class="s2">=</span><span class="s1">int</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">z</span><span class="s2">)</span>
+
+<span class="s1">pixels </span><span class="s2">= </span><span class="s1">np</span><span class="s2">.</span><span class="s1">array</span><span class="s2">([</span><span class="s6">10</span><span class="s2">, </span><span class="s6">120</span><span class="s2">, </span><span class="s6">255</span><span class="s2">], </span><span class="s1">dtype</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">uint8</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">pixels</span><span class="s2">.</span><span class="s1">dtype</span><span class="s2">, </span><span class="s1">pixels</span><span class="s2">, </span><span class="s1">pixels</span><span class="s2">.</span><span class="s1">itemsize</span><span class="s2">, </span><span class="s4">&quot;bytes per value&quot;</span><span class="s2">)</span>
+
+
+<span class="s5">#07</span>
+<span class="s0">import </span><span class="s1">numpy </span><span class="s0">as </span><span class="s1">np</span>
+
+<span class="s1">temps</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">array</span><span class="s2">([</span><span class="s6">31.5</span><span class="s2">,</span><span class="s6">33.0</span><span class="s2">,</span><span class="s6">29.8</span><span class="s2">,</span><span class="s6">35.2</span><span class="s2">,</span><span class="s6">36.3</span><span class="s2">,</span><span class="s6">34.7</span><span class="s2">,</span><span class="s6">30.4</span><span class="s2">])</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">temps</span><span class="s2">)</span>
+
+<span class="s1">grid</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">zeros</span><span class="s2">((</span><span class="s6">3</span><span class="s2">,</span><span class="s6">4</span><span class="s2">))</span>
+<span class="s1">I4</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">eye</span><span class="s2">(</span><span class="s6">4</span><span class="s2">)</span>
+<span class="s1">evens</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">arange</span><span class="s2">(</span><span class="s6">2</span><span class="s2">,</span><span class="s6">21</span><span class="s2">,</span><span class="s6">2</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">grid</span><span class="s2">,</span><span class="s1">I4</span><span class="s2">,</span><span class="s1">evens</span><span class="s2">,</span><span class="s1">sep</span><span class="s2">=</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">)</span>
+
+<span class="s5">#08</span>
+<span class="s0">import </span><span class="s1">numpy </span><span class="s0">as </span><span class="s1">np</span>
+<span class="s1">pts</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">linspace</span><span class="s2">(-</span><span class="s6">1</span><span class="s2">,</span><span class="s6">1</span><span class="s2">,</span><span class="s6">9</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">pts</span><span class="s2">)</span>
+
+<span class="s1">img</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">zeros</span><span class="s2">((</span><span class="s6">28</span><span class="s2">,</span><span class="s6">28</span><span class="s2">,</span><span class="s6">3</span><span class="s2">))</span>
+<span class="s1">img_values</span><span class="s2">=</span><span class="s1">img</span><span class="s2">.</span><span class="s1">size</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">img_values</span><span class="s2">)</span>
+
+<span class="s5">#09</span>
+<span class="s0">import </span><span class="s1">numpy </span><span class="s0">as </span><span class="s1">np</span>
+<span class="s1">a</span><span class="s2">=</span><span class="s1">np</span><span class="s2">.</span><span class="s1">zeros</span><span class="s2">([</span><span class="s6">10</span><span class="s2">,</span><span class="s6">20</span><span class="s2">,</span><span class="s6">30</span><span class="s2">,</span><span class="s6">40</span><span class="s2">,</span><span class="s6">50</span><span class="s2">])</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">a</span><span class="s2">[</span><span class="s6">0</span><span class="s2">],</span><span class="s1">a</span><span class="s2">[-</span><span class="s6">1</span><span class="s2">])</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">a</span><span class="s2">[</span><span class="s6">1</span><span class="s2">:</span><span class="s6">4</span><span class="s2">])</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">a</span><span class="s2">[::</span><span class="s6">2</span><span class="s2">])</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">a</span><span class="s2">[::-</span><span class="s6">1</span><span class="s2">])</span>
+</pre>
+</body>
+</html>

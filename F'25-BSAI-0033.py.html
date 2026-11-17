@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>F'25-BSAI-0033.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #bcbec4;}
+.s2 { color: #6aab73;}
+.s3 { color: #7a7e85;}
+.s4 { color: #cf8e6d;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+F'25-BSAI-0033.py</font>
+</center></td></tr></table>
+<pre><span class="s0">students </span><span class="s1">= []</span>
+
+<span class="s0">subject_names </span><span class="s1">= [</span>
+    <span class="s2">&quot;Programming&quot;</span><span class="s1">,</span>
+    <span class="s2">&quot;Mathematics&quot;</span><span class="s1">,</span>
+    <span class="s2">&quot;Artificial Intelligence&quot;</span>
+<span class="s1">]</span>
+
+<span class="s0">student_name </span><span class="s1">= </span><span class="s0">input</span><span class="s1">(</span><span class="s2">&quot;Enter student name (-1 to stop): &quot;</span><span class="s1">)</span>
+
+<span class="s3"># Sentinel-controlled while loop</span>
+<span class="s4">while </span><span class="s0">student_name </span><span class="s1">!= </span><span class="s2">&quot;-1&quot;</span><span class="s1">:</span>
+
+    <span class="s0">total </span><span class="s1">= </span><span class="s5">0</span>
+    <span class="s0">marks </span><span class="s1">= []</span>
+
+    <span class="s3"># Process the three subjects using a for loop</span>
+    <span class="s4">for </span><span class="s0">subject </span><span class="s4">in </span><span class="s0">subject_names</span><span class="s1">:</span>
+        <span class="s0">mark </span><span class="s1">= </span><span class="s0">float</span><span class="s1">(</span><span class="s0">input</span><span class="s1">(</span><span class="s2">&quot;Enter marks in &quot; </span><span class="s1">+ </span><span class="s0">subject </span><span class="s1">+ </span><span class="s2">&quot;: &quot;</span><span class="s1">))</span>
+
+        <span class="s0">marks</span><span class="s1">.</span><span class="s0">append</span><span class="s1">(</span><span class="s0">mark</span><span class="s1">)</span>
+        <span class="s0">total </span><span class="s1">+= </span><span class="s0">mark</span>
+
+    <span class="s0">average </span><span class="s1">= </span><span class="s0">total </span><span class="s1">/ </span><span class="s5">3</span>
+
+    <span class="s3"># Pass condition: average must be at least 50</span>
+    <span class="s4">if </span><span class="s0">average </span><span class="s1">&gt;= </span><span class="s5">50</span><span class="s1">:</span>
+        <span class="s0">result </span><span class="s1">= </span><span class="s2">&quot;Pass&quot;</span>
+    <span class="s4">else</span><span class="s1">:</span>
+        <span class="s0">result </span><span class="s1">= </span><span class="s2">&quot;Fail&quot;</span>
+
+    <span class="s3"># Store the student's information</span>
+    <span class="s0">students</span><span class="s1">.</span><span class="s0">append</span><span class="s1">([</span><span class="s0">student_name</span><span class="s1">, </span><span class="s0">marks</span><span class="s1">, </span><span class="s0">total</span><span class="s1">, </span><span class="s0">average</span><span class="s1">, </span><span class="s0">result</span><span class="s1">])</span>
+
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;</span><span class="s4">\n</span><span class="s2">Student Name:&quot;</span><span class="s1">, </span><span class="s0">student_name</span><span class="s1">)</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Total Marks:&quot;</span><span class="s1">, </span><span class="s0">total</span><span class="s1">)</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Average Marks:&quot;</span><span class="s1">, </span><span class="s0">round</span><span class="s1">(</span><span class="s0">average</span><span class="s1">, </span><span class="s5">2</span><span class="s1">))</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Result:&quot;</span><span class="s1">, </span><span class="s0">result</span><span class="s1">)</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;-&quot; </span><span class="s1">* </span><span class="s5">40</span><span class="s1">)</span>
+
+    <span class="s3"># Ask for the next student</span>
+    <span class="s0">student_name </span><span class="s1">= </span><span class="s0">input</span><span class="s1">(</span><span class="s2">&quot;Enter student name (-1 to stop): &quot;</span><span class="s1">)</span>
+
+
+<span class="s3"># Analyze the class after data entry</span>
+<span class="s4">if </span><span class="s0">len</span><span class="s1">(</span><span class="s0">students</span><span class="s1">) == </span><span class="s5">0</span><span class="s1">:</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;</span><span class="s4">\n</span><span class="s2">No student records were entered.&quot;</span><span class="s1">)</span>
+
+<span class="s4">else</span><span class="s1">:</span>
+    <span class="s0">student_count </span><span class="s1">= </span><span class="s5">0</span>
+    <span class="s0">class_total </span><span class="s1">= </span><span class="s5">0</span>
+    <span class="s0">highest_average </span><span class="s1">= </span><span class="s0">students</span><span class="s1">[</span><span class="s5">0</span><span class="s1">][</span><span class="s5">3</span><span class="s1">]</span>
+    <span class="s0">lowest_average </span><span class="s1">= </span><span class="s0">students</span><span class="s1">[</span><span class="s5">0</span><span class="s1">][</span><span class="s5">3</span><span class="s1">]</span>
+    <span class="s0">highest_student </span><span class="s1">= </span><span class="s0">students</span><span class="s1">[</span><span class="s5">0</span><span class="s1">][</span><span class="s5">0</span><span class="s1">]</span>
+    <span class="s0">lowest_student </span><span class="s1">= </span><span class="s0">students</span><span class="s1">[</span><span class="s5">0</span><span class="s1">][</span><span class="s5">0</span><span class="s1">]</span>
+    <span class="s0">pass_count </span><span class="s1">= </span><span class="s5">0</span>
+    <span class="s0">fail_count </span><span class="s1">= </span><span class="s5">0</span>
+
+    <span class="s3"># Calculate class statistics</span>
+    <span class="s4">for </span><span class="s0">student </span><span class="s4">in </span><span class="s0">students</span><span class="s1">:</span>
+        <span class="s0">student_count </span><span class="s1">+= </span><span class="s5">1</span>
+        <span class="s0">class_total </span><span class="s1">+= </span><span class="s0">student</span><span class="s1">[</span><span class="s5">3</span><span class="s1">]</span>
+
+        <span class="s4">if </span><span class="s0">student</span><span class="s1">[</span><span class="s5">3</span><span class="s1">] &gt; </span><span class="s0">highest_average</span><span class="s1">:</span>
+            <span class="s0">highest_average </span><span class="s1">= </span><span class="s0">student</span><span class="s1">[</span><span class="s5">3</span><span class="s1">]</span>
+            <span class="s0">highest_student </span><span class="s1">= </span><span class="s0">student</span><span class="s1">[</span><span class="s5">0</span><span class="s1">]</span>
+
+        <span class="s4">if </span><span class="s0">student</span><span class="s1">[</span><span class="s5">3</span><span class="s1">] &lt; </span><span class="s0">lowest_average</span><span class="s1">:</span>
+            <span class="s0">lowest_average </span><span class="s1">= </span><span class="s0">student</span><span class="s1">[</span><span class="s5">3</span><span class="s1">]</span>
+            <span class="s0">lowest_student </span><span class="s1">= </span><span class="s0">student</span><span class="s1">[</span><span class="s5">0</span><span class="s1">]</span>
+
+        <span class="s4">if </span><span class="s0">student</span><span class="s1">[</span><span class="s5">4</span><span class="s1">] == </span><span class="s2">&quot;Pass&quot;</span><span class="s1">:</span>
+            <span class="s0">pass_count </span><span class="s1">+= </span><span class="s5">1</span>
+        <span class="s4">else</span><span class="s1">:</span>
+            <span class="s0">fail_count </span><span class="s1">+= </span><span class="s5">1</span>
+
+    <span class="s0">class_average </span><span class="s1">= </span><span class="s0">class_total </span><span class="s1">/ </span><span class="s0">student_count</span>
+
+    <span class="s3"># Count students above the class average</span>
+    <span class="s0">above_average_count </span><span class="s1">= </span><span class="s5">0</span>
+
+    <span class="s4">for </span><span class="s0">student </span><span class="s4">in </span><span class="s0">students</span><span class="s1">:</span>
+        <span class="s4">if </span><span class="s0">student</span><span class="s1">[</span><span class="s5">3</span><span class="s1">] &gt; </span><span class="s0">class_average</span><span class="s1">:</span>
+            <span class="s0">above_average_count </span><span class="s1">+= </span><span class="s5">1</span>
+
+    <span class="s3"># Display class statistics</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;</span><span class="s4">\n</span><span class="s2">========== CLASS REPORT ==========&quot;</span><span class="s1">)</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Number of Students:&quot;</span><span class="s1">, </span><span class="s0">student_count</span><span class="s1">)</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Class Average:&quot;</span><span class="s1">, </span><span class="s0">round</span><span class="s1">(</span><span class="s0">class_average</span><span class="s1">, </span><span class="s5">2</span><span class="s1">))</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Highest Average:&quot;</span><span class="s1">, </span><span class="s0">round</span><span class="s1">(</span><span class="s0">highest_average</span><span class="s1">, </span><span class="s5">2</span><span class="s1">))</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Highest-Scoring Student:&quot;</span><span class="s1">, </span><span class="s0">highest_student</span><span class="s1">)</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Lowest Average:&quot;</span><span class="s1">, </span><span class="s0">round</span><span class="s1">(</span><span class="s0">lowest_average</span><span class="s1">, </span><span class="s5">2</span><span class="s1">))</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Lowest-Scoring Student:&quot;</span><span class="s1">, </span><span class="s0">lowest_student</span><span class="s1">)</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Passing Students:&quot;</span><span class="s1">, </span><span class="s0">pass_count</span><span class="s1">)</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Failing Students:&quot;</span><span class="s1">, </span><span class="s0">fail_count</span><span class="s1">)</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Above Class Average:&quot;</span><span class="s1">, </span><span class="s0">above_average_count</span><span class="s1">)</span>
+
+    <span class="s3"># Nested loops: compare every student with every other student</span>
+    <span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;</span><span class="s4">\n</span><span class="s2">======= STUDENT COMPARISONS =======&quot;</span><span class="s1">)</span>
+
+    <span class="s4">for </span><span class="s0">i </span><span class="s4">in </span><span class="s0">range</span><span class="s1">(</span><span class="s0">len</span><span class="s1">(</span><span class="s0">students</span><span class="s1">)):</span>
+        <span class="s4">for </span><span class="s0">j </span><span class="s4">in </span><span class="s0">range</span><span class="s1">(</span><span class="s0">i </span><span class="s1">+ </span><span class="s5">1</span><span class="s1">, </span><span class="s0">len</span><span class="s1">(</span><span class="s0">students</span><span class="s1">)):</span>
+
+            <span class="s0">name1 </span><span class="s1">= </span><span class="s0">students</span><span class="s1">[</span><span class="s0">i</span><span class="s1">][</span><span class="s5">0</span><span class="s1">]</span>
+            <span class="s0">average1 </span><span class="s1">= </span><span class="s0">students</span><span class="s1">[</span><span class="s0">i</span><span class="s1">][</span><span class="s5">3</span><span class="s1">]</span>
+
+            <span class="s0">name2 </span><span class="s1">= </span><span class="s0">students</span><span class="s1">[</span><span class="s0">j</span><span class="s1">][</span><span class="s5">0</span><span class="s1">]</span>
+            <span class="s0">average2 </span><span class="s1">= </span><span class="s0">students</span><span class="s1">[</span><span class="s0">j</span><span class="s1">][</span><span class="s5">3</span><span class="s1">]</span>
+
+            <span class="s4">if </span><span class="s0">average1 </span><span class="s1">&gt; </span><span class="s0">average2</span><span class="s1">:</span>
+                <span class="s0">print</span><span class="s1">(</span><span class="s0">name1</span><span class="s1">, </span><span class="s2">&quot;performed better than&quot;</span><span class="s1">, </span><span class="s0">name2</span><span class="s1">)</span>
+
+            <span class="s4">elif </span><span class="s0">average2 </span><span class="s1">&gt; </span><span class="s0">average1</span><span class="s1">:</span>
+                <span class="s0">print</span><span class="s1">(</span><span class="s0">name2</span><span class="s1">, </span><span class="s2">&quot;performed better than&quot;</span><span class="s1">, </span><span class="s0">name1</span><span class="s1">)</span>
+
+            <span class="s4">else</span><span class="s1">:</span>
+                <span class="s0">print</span><span class="s1">(</span><span class="s0">name1</span><span class="s1">, </span><span class="s2">&quot;and&quot;</span><span class="s1">, </span><span class="s0">name2</span><span class="s1">,</span>
+                      <span class="s2">&quot;have equal averages&quot;</span><span class="s1">)</span>
+</pre>
+</body>
+</html>
